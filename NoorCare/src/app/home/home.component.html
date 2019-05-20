@@ -1,0 +1,73 @@
+<section class="section-main bg padding-y-sm">
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <div class="row row-sm">
+                    <aside class="col-md-3">
+                        <h6 class="text-uppercase title-bg bg-secondary">Product Range</h6>
+                        <ul class="menu-category">
+                            <li><a href="#">Hair Products</a></li>
+                            <li><a href="#">Hospital Items</a></li>
+                            <li><a href="#">Gym Wears</a></li>
+                            <li><a href="#">Baby Care</a></li>
+                            <li><a href="#">Sport Products</a></li>
+                            <li><a href="#">Beauty & Personal Care</a></li>
+                            <li class="has-submenu">
+                                <a href="#">More category  <i class="icon-arrow-right pull-right"></i></a>
+                                <ul class="submenu">
+                                    <li> <a href="#">Food &amp Beverage </a></li>
+                                    <li> <a href="#">Home Equipments </a></li>
+                                    <li> <a href="#">Machinery Items </a></li>
+                                    <li> <a href="#">Toys & Hobbies  </a></li>
+                                    <li> <a href="#">Consumer Electronics  </a></li>
+                                    <li> <a href="#">Home & Garden  </a></li>
+                                    <li> <a href="#">Beauty & Personal Care  </a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </aside>
+                    <div class="col-md-6">
+                        <owl-carousel [options]="carouselOptions" 
+                            [items]="images"  
+                            [carouselClasses]="['owl-theme', 'row', 'sliding']">
+                            
+                            <div class="item" *ngFor="let image of images;let i= index">
+                                <img class="slide-image" src="{{image.image}}" >
+                                <div class="slide-text">
+                                    <h4>{{image.text}}</h4>
+                                </div>
+                            </div>
+
+                        </owl-carousel>
+                    </div>
+                    <aside class="col-md-3">
+                        <h6 class="text-uppercase title-bg bg-secondary">Care & Health Facility</h6>
+                        <ul class="menu-category">
+                            <li> <a href="#">Doctors</a></li>
+                            <li> <a href="#">Hospitals</a></li>
+                            <li> <a href="#">Medical Labs</a></li>
+                            <li> <a href="#">Pharmacies</a></li>
+                            <li> <a href="#">Medical Center</a></li>
+                            <li> <a href="#">Physiotherapy Center</a></li>
+                            <li class="has-submenu">
+                                <a href="#">More category  <i class="icon-arrow-right pull-right"></i></a>
+                                <ul class="submenu">
+                                    <li> <a href="#">Food &amp Beverage </a></li>
+                                    <li> <a href="#">Home Equipments </a></li>
+                                    <li> <a href="#">Machinery Items </a></li>
+                                    <li> <a href="#">Toys & Hobbies  </a></li>
+                                    <li> <a href="#">Consumer Electronics  </a></li>
+                                    <li> <a href="#">Home & Garden  </a></li>
+                                    <li> <a href="#">Beauty & Personal Care  </a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </aside>
+                </div>
+            </div>
+        </div>
+        <figure class="mt-3 banner p-3 bg-secondary">
+            <div class="text-lg text-center white">Useful banner can be here</div>
+        </figure>
+    </div>
+</section>
