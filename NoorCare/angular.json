@@ -25,13 +25,15 @@
             "styles": [
               "node_modules/owl.carousel/dist/assets/owl.carousel.css",
               "node_modules/owl.carousel/dist/assets/owl.theme.default.css",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "src/styles/BootstrapV4.3.1.css",
               "node_modules/roboto-fontface/css/roboto/roboto-fontface.css",
               "src/styles.css",
               "src/styles/responsive.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.js",
+              "src/assets/js/bootstrap.bundle.min.js",
+              "src/assets/js/script.js",
               "node_modules/owl.carousel/dist/owl.carousel.js"
             ],
             "es5BrowserSupport": true
