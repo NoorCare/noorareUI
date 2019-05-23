@@ -11,13 +11,13 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  registerUser(user: User){
+  registerUser(fullname,email,password,phone,jobType){
     const body: User = {
-      UserName: user.UserName,
-      Password: user.Password,
-      Email: user.Email,
-      FirstName: user.FirstName,
-      LastName: user.LastName
+      FullName: fullname,
+      Email: email,
+      Password: password,
+      Phone: phone,
+      JobType: jobType
     }
 
     let reqHeader = new HttpHeaders({'No-Auth':'True'});

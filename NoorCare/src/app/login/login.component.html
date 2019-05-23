@@ -6,7 +6,7 @@
                   <div class="SignInForm row">
                       <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                           <div class="card card-body bg-light">
-                              <form #loginForm="ngForm" (ngSubmit)="OnSubmit(UserName.value,Password.value)">
+                              <form #loginForm="ngForm" (ngSubmit)="OnSubmit(UserName.value,Pwd.value)">
                                   <h1 class="h3 mb-3 font-weight-normal" style="text-align: center"> Sign in</h1>
                                   <p>
                                       <a href="" class="btn btn-block btn-twitter"> <i class="fab fa-twitter"></i> &nbsp; Login via Twitter</a>
@@ -28,7 +28,7 @@
                                           <div class="input-group-prepend">
                                               <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                                           </div>
-                                          <input name="Password" #Password ngModel class="form-control" placeholder="******" type="password">
+                                          <input name="Password" #Pwd  ngModel class="form-control" placeholder="******" type="password">
                                       </div>
                                   </div>
 
@@ -86,8 +86,8 @@
                               <button class="btn btn-NoorCare btn-block" type="button" id="btn_SignUp"><i class="fas fa-user-plus"></i> Sign up New Account</button>
                           </div>
                       </div>
-                  </div>
-                  <form action="/signup/" class="SignUpForm">
+                  </div> 
+                  
 
                       <h3 class="font-weight-bold text-center mb-3">How You want To join Us..?</h3>
 
@@ -108,8 +108,10 @@
                       <!-- #region Tab panes -->
                       <div class="tab-content">
                           <div id="User" class="container tab-pane active">
+                            
                               <div class="row">
                                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                                    <form #signUpForm="ngForm" (ngSubmit)="OnRegisterSubmit(fullName.value,regEmail.value,regPhone.value,regJobType.value,regPassword.value,regRePassword.value)" class="SignUpForm">
                                       <div class="card card-body mx-auto bg-light">
                                           <h4 class="card-title mt-3 text-center">Create Account</h4>
                                           <p class="text-center">Get started with your free account</p>
@@ -124,13 +126,13 @@
                                               <div class="input-group-prepend">
                                                   <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                                               </div>
-                                              <input name="" class="form-control" placeholder="Full name" type="text">
+                                              <input name="fullName" #fullName  ngModel class="form-control" placeholder="Full name" type="text">
                                           </div>
                                           <div class="form-group input-group">
                                               <div class="input-group-prepend">
                                                   <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
                                               </div>
-                                              <input name="" class="form-control" placeholder="Email address" type="email">
+                                              <input name="regEmail" #regEmail ngModel class="form-control" placeholder="Email address" type="email">
                                           </div>
                                           <div class="form-group input-group">
                                               <div class="input-group-prepend">
@@ -142,36 +144,37 @@
                                                   <option value="2">+198</option>
                                                   <option value="3">+701</option>
                                               </select>
-                                              <input name="" class="form-control" placeholder="Phone number" type="text">
+                                              <input name="regPhone" #regPhone  ngModel class="form-control" placeholder="Phone number" type="text">
                                           </div>
                                           <div class="form-group input-group">
                                               <div class="input-group-prepend">
                                                   <span class="input-group-text"> <i class="fa fa-building"></i> </span>
                                               </div>
-                                              <select class="form-control">
+                                              <select name="regJobType" #regJobType  ngModel class="form-control">
                                                   <option selected> Select job type</option>
-                                                  <option>Designer</option>
-                                                  <option>Manager</option>
-                                                  <option>Accaunting</option>
+                                                  <option value="1">Designer</option>
+                                                  <option value="2">Manager</option>
+                                                  <option value="3">Accaunting</option>
                                               </select>
                                           </div>
                                           <div class="form-group input-group">
                                               <div class="input-group-prepend">
                                                   <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                                               </div>
-                                              <input class="form-control" placeholder="Create password" type="password">
+                                              <input name="regPassword" #regPassword  ngModel class="form-control" placeholder="Create password" type="password">
                                           </div>
                                           <div class="form-group input-group">
                                               <div class="input-group-prepend">
                                                   <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                                               </div>
-                                              <input class="form-control" placeholder="Repeat password" type="password">
+                                              <input name="regRePassowrd" #regRePassword  ngModel class="form-control" placeholder="Repeat password" type="password">
                                           </div>
                                           <div class="form-group">
                                               <button type="submit" class="btn btn-primary btn-block"><i class="fas fa-user-plus"></i> Create Account  </button>
                                           </div>
                                           <p class="text-center">Have an account? <a href="">Log In</a> </p>
                                       </div>
+                                    </form>
                                   </div>
                                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                                       <p class="lead">Register now for <span class="text-success">FREE</span></p>
@@ -205,7 +208,7 @@
                       </div>
                       <!-- #endregion -->
                       <a href="#" id="SignUpCancel"><i class="fas fa-angle-left"></i> Back</a>
-                  </form>
+                  
                   <br>
               </div>
           </div>
