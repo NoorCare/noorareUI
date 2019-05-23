@@ -10,13 +10,12 @@
             <p class="divider-text">
                 <span>OR</span>
             </p>
-            <form (ngSubmit)="AddUser()">
             <div class="form-group input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                 </div>
                 <input name="name" class="form-control" 
-                (ngModel)="_userRegistrationModel.name" 
+                [(ngModel)]="_userRegistrationModel.name" 
                 placeholder="Full name" type="text">
             </div>
             <div class="form-group input-group">
@@ -24,7 +23,7 @@
                     <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
                 </div>
                 <input name="email" class="form-control"  
-                (ngModel)="_userRegistrationModel.email" 
+                [(ngModel)]="_userRegistrationModel.email" 
                 placeholder="Email address" type="email">
             </div>
             <div class="form-group input-group">
@@ -34,7 +33,7 @@
                 <select class="custom-select" style="max-width: 120px;">
                     <option selected>+971</option>
                 </select>
-                <input name="phoneNumber" (ngModel)="_userRegistrationModel.phoneNumber" 
+                <input name="phoneNumber" [(ngModel)]="_userRegistrationModel.phoneNumber" 
                 class="form-control" 
                 placeholder="Phone number" type="text">
             </div>
@@ -42,7 +41,7 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text"> <i class="fa fa-building"></i> </span>
                 </div>
-                <select class="form-control" (ngModel)="_userRegistrationModel.job">
+                <select class="form-control" [(ngModel)]="_userRegistrationModel.job">
                     <option selected> Select job type</option>
                     <option>Designer</option>
                     <option>Manager</option>
@@ -54,7 +53,7 @@
                     <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                 </div>
                 <input class="form-control" 
-                (ngModel)="_userRegistrationModel.password"
+                [(ngModel)]="_userRegistrationModel.password"
                  placeholder="Create password" type="password">
             </div>
             <div class="form-group input-group">
@@ -66,12 +65,11 @@
                 type="password">
             </div>
             <div class="form-group">
-                <button type="submit" 
+                <button type="submit" (click)="AddUser()"
                 class="btn btn-primary btn-block">
                 <i class="fas fa-user-plus"></i> Create Account  
               </button>
             </div>
-          </form>
         </div>
     </div>
     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">

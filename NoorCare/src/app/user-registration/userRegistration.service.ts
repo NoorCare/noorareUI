@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import UserRegistrationModel from './userRegistratio.model';
+import Constant from '../common/constant';
 
 @Injectable()
 export default class UserRegistrationServices {
@@ -10,8 +11,9 @@ export default class UserRegistrationServices {
     }
 
     public AddUser(userRegistration: UserRegistrationModel){
-
-        //this.httpclient.post(serviceBase + registrationApi, registration)
+        debugger;
+        return this.httpclient.post<UserRegistrationModel>(Constant.serviceBaseUrl + 
+            Constant.registrationApi, userRegistration).toPromise();
 
     }
 }

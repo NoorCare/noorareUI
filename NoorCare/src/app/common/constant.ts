@@ -1,5 +1,5 @@
 export default class Constant
 {
-    serviceBaseUrl: string =""
-    registrationApi: string = 'api/account/register';
+    public static serviceBaseUrl: string ="http://localhost/NoorCareApi/"
+    public static registrationApi: string = 'api/account/register';
 }
