@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import UserRegistrationModel from './userRegistratio.model';
+import UserRegistrationServices from './userRegistration.service';
 
 @Component({
   selector: 'app-user-registration',
@@ -6,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-registration.component.css']
 })
 export class UserRegistrationComponent implements OnInit {
-
-  constructor() { }
+ _userRegistrationModel = new UserRegistrationModel();
+  constructor(public userRegistrationServiceObject: UserRegistrationServices) { }
 
   ngOnInit() {
   }
+  
+   AddUser(){
+    this.userRegistrationServiceObject.AddUser(this._userRegistrationModel);
+   }
 
 }

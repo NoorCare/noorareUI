@@ -14,6 +14,7 @@ import { DoctorComponent } from './doctor/doctor.component';
 import { HospitalComponent } from './hospital/hospital.component';
 import { PharmacyComponent } from './pharmacy/pharmacy.component';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
+import UserRegistrationServices from './user-registration/userRegistration.service';
 
 
 @NgModule({
@@ -33,7 +34,7 @@ import { UserRegistrationComponent } from './user-registration/user-registration
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [UserService, AuthGuard,{
+  providers: [UserService, UserRegistrationServices, AuthGuard,{
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
     multi: true
