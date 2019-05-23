@@ -9,13 +9,23 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { UserService } from './shared/user.service';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
+import { SignUpComponent } from './sign-up/sign-up.component';
+import { DoctorComponent } from './doctor/doctor.component';
+import { HospitalComponent } from './hospital/hospital.component';
+import { PharmacyComponent } from './pharmacy/pharmacy.component';
+import { UserRegistrationComponent } from './user-registration/user-registration.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    SignUpComponent,
+    DoctorComponent,
+    HospitalComponent,
+    PharmacyComponent,
+    UserRegistrationComponent
   ],
   imports: [
     BrowserModule,
