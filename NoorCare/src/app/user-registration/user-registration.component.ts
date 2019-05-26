@@ -15,6 +15,7 @@ export class UserRegistrationComponent implements OnInit {
   }
   
    AddUser(){
+     debugger;
     this.userRegistrationServiceObject.AddUser(this._userRegistrationModel);
    }
 
