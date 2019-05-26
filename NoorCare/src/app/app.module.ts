@@ -10,6 +10,8 @@ import { UserService } from './shared/user.service';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { UserRegistrationComponent } from './user-registration/user-registration.component';
+import UserRegistrationServices from './user-registration/userRegistration.service';
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     AppComponent,
     HomeComponent,
     LoginComponent,
-    SignUpComponent
+    SignUpComponent,
+    UserRegistrationComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -25,7 +29,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [UserService, AuthGuard,{
+  providers: [UserService, UserRegistrationServices, AuthGuard,{
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
     multi: true
