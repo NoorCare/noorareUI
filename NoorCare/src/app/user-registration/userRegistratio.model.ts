@@ -1,7 +1,9 @@
 export default class UserRegistrationModel {
-        name?:string;
-        email?:string;
-        phoneNumber?:number;
-        job?:string;
-        password?:string;
+    UserName?:string;
+    Email?:string;
+    PhoneNo?:number;
+    jobType?:string;
+    Password?:string;
+    ConfirmPassword?:string;
+    AccountType?:string
     }

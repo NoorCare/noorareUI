@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import UserRegistrationModel from './userRegistratio.model';
 import Constant from '../common/constant';
 
@@ -10,10 +10,12 @@ export default class UserRegistrationServices {
 
     }
 
-    public AddUser(userRegistration: UserRegistrationModel){
+    public registerUser(userRegistration: UserRegistrationModel){
         debugger;
-        return this.httpclient.post<UserRegistrationModel>(Constant.serviceBaseUrl + 
-            Constant.registrationApi, userRegistration).toPromise();
+                var reqHeader = new HttpHeaders({'No-Auth':'True'});
+                return this.httpclient.post(Constant.serviceBaseUrl + Constant.registrationApi, 
+                    userRegistration, {headers : reqHeader});
+                }
+            
 
-    }
 }

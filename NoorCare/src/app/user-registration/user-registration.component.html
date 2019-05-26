@@ -4,14 +4,14 @@
             <div class="input-group-prepend">
                 <span class="input-group-text"> <i class="fa fa-user"></i> </span>
             </div>
-            <input  [(ngModel)]="_userRegistrationModel.name" name="name"
+            <input  [(ngModel)]="_userRegistrationModel.UserName" name="name"
              class="form-control" placeholder="Full name" type="text">
         </div>
         <div class="form-group input-group">
             <div class="input-group-prepend">
                 <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
             </div>
-            <input [(ngModel)]="_userRegistrationModel.email" name="email" 
+            <input [(ngModel)]="_userRegistrationModel.Email" name="email" 
             class="form-control" placeholder="Email address" type="email">
         </div>
         <div class="form-group input-group">
@@ -24,14 +24,14 @@
                 <option value="2">+198</option>
                 <option value="3">+701</option>
             </select>
-            <input [(ngModel)]="_userRegistrationModel.phoneNumber" 
+            <input [(ngModel)]="_userRegistrationModel.PhoneNo" 
             name="phoneNumber" class="form-control" placeholder="Phone number" type="text">
         </div>
         <div class="form-group input-group">
             <div class="input-group-prepend">
                 <span class="input-group-text"> <i class="fa fa-building"></i> </span>
             </div>
-            <select class="form-control" [(ngModel)]="_userRegistrationModel.job" >
+            <select class="form-control" [(ngModel)]="_userRegistrationModel.jobType" >
                 <option selected> Select job type</option>
                 <option>Designer</option>
                 <option>Manager</option>
@@ -42,13 +42,13 @@
             <div class="input-group-prepend">
                 <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
             </div>
-            <input [(ngModel)]="_userRegistrationModel.password" class="form-control" placeholder="Create password" type="password">
+            <input [(ngModel)]="_userRegistrationModel.Password" class="form-control" placeholder="Create password" type="password">
         </div>
         <div class="form-group input-group">
             <div class="input-group-prepend">
                 <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
             </div>
-            <input class="form-control" placeholder="Repeat password" type="password">
+            <input [(ngModel)]="_userRegistrationModel.ConfirmPassword" class="form-control" placeholder="Repeat password" type="password">
         </div>
         <div class="form-group">
             <button type="submit"

@@ -12,6 +12,7 @@ import { AuthInterceptor } from './auth/auth.interceptor';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
 import UserRegistrationServices from './user-registration/userRegistration.service';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import UserRegistrationServices from './user-registration/userRegistration.servi
   imports: [
     BrowserModule,
     FormsModule,
+    ToastrModule.forRoot(),
     AppRoutingModule,
     HttpClientModule
   ],
