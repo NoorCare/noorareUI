@@ -325,6 +325,11 @@ html {
   .row-sm > [class^="col"] {
     padding-left: 7px;
     padding-right: 7px; }
+  .bg-NoorCare {
+      background-color: #0c492a !important; }
+    
+   .text-NoorCare {
+      color: #0c492a !important; }
   
   .bg-white {
     background-color: #fff !important; }
