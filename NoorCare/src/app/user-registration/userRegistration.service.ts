@@ -11,11 +11,18 @@ export default class UserRegistrationServices {
     }
 
     public registerUser(userRegistration: UserRegistrationModel){
-        debugger;
-                var reqHeader = new HttpHeaders({'No-Auth':'True'});
-                return this.httpclient.post(Constant.serviceBaseUrl + Constant.registrationApi, 
-                    userRegistration, {headers : reqHeader});
-                }
-            
+        var reqHeader = new HttpHeaders({'No-Auth':'True'});
+        return this.httpclient.post(Constant.serviceBaseUrl + Constant.registrationApi, 
+        userRegistration, {headers : reqHeader});
+    }
+
+    public userAuthentication(userName, password) {
+        var data = "username=" + userName + "&password=" + password + "&grant_type=password";
+        var reqHeader = new HttpHeaders({ 
+            'Content-Type': 'application/x-www-urlencoded','No-Auth':'True',
+            'Access-Control-Allow-Origin': '*'
+         });
+        return this.httpclient.post(Constant.serviceBaseUrl + '/token', data, { headers: reqHeader });
+    }
 
 }

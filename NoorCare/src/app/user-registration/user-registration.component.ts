@@ -23,6 +23,7 @@ export class UserRegistrationComponent implements OnInit {
       .subscribe((data: any) => {
         if (data.Succeeded == true) {
           this.toastr.success('User registration successful');
+          this.router.navigateByUrl(['login']);
         }
         else
           this.toastr.error(data.Errors[0]);
