@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class UserRegistrationComponent implements OnInit {
  _userRegistrationModel = new UserRegistrationModel();
+ name;
  isLoginError : boolean = false;
  msgError: string;
 
@@ -21,13 +22,26 @@ export class UserRegistrationComponent implements OnInit {
   }
   
    AddUser(){
-     if(this._userRegistrationModel.UserName == null ||this._userRegistrationModel.Email == null || this._userRegistrationModel.PhoneNo == null
-        ||this._userRegistrationModel.ConfirmPassword == null || this._userRegistrationModel.Password == null) {
-      
+    const emailPattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    const phoneno = /^\d{10}$/;
+     if(this._userRegistrationModel.UserName == null) {
       this.isLoginError = true;
-      this.msgError = 'Please Enter Register';
-     } else {
-       console.log('Request');
+      this.msgError = 'Enter UserName';
+     } else if(this._userRegistrationModel.Email == null || !this._userRegistrationModel.Email.match(emailPattern)) {
+      this.isLoginError = true;
+      this.msgError = 'Enter a vaild email address';
+     } else if(this._userRegistrationModel.PhoneNo == null || !this._userRegistrationModel.PhoneNo.toString().match(phoneno)) {
+      this.isLoginError = true;
+      this.msgError = 'Phone number should be 10 digit number';
+     } else if (this._userRegistrationModel.Password == null) {
+      this.isLoginError = true;
+      this.msgError = 'Enter Password';
+     }
+     else if(this._userRegistrationModel.Password != this._userRegistrationModel.ConfirmPassword) {
+      this.isLoginError = true;
+      this.msgError = 'Do not Match Password';
+    } else {
+      console.log('Request');
       this._userRegistrationModel.AccountType="1";
       this.userRegistrationServiceObject.registerUser(this._userRegistrationModel)
         .subscribe((data: any) => {

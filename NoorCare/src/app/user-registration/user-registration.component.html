@@ -12,7 +12,7 @@
                 <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
             </div>
             <input [(ngModel)]="_userRegistrationModel.Email" name="email" 
-            class="form-control" placeholder="Email address" type="email">
+            class="form-control" placeholder="Email address" type="email" required>
         </div>
         <div class="form-group input-group">
             <div class="input-group-prepend">
@@ -25,7 +25,7 @@
                 <option value="3">+701</option>
             </select>
             <input [(ngModel)]="_userRegistrationModel.PhoneNo" 
-            name="phoneNumber" class="form-control" placeholder="Phone number" type="text">
+            name="phoneNumber" class="form-control" placeholder="Phone number" type="number" required>
         </div>
         <div class="form-group input-group">
             <div class="input-group-prepend">
@@ -48,7 +48,8 @@
             <div class="input-group-prepend">
                 <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
             </div>
-            <input [(ngModel)]="_userRegistrationModel.ConfirmPassword" class="form-control" placeholder="Repeat password" type="password">
+            <input [(ngModel)]="_userRegistrationModel.ConfirmPassword" 
+            class="form-control" placeholder="Repeat password" type="password">
         </div>
         <div class="form-group">
             <button type="submit"
