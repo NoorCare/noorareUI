@@ -18,6 +18,7 @@ export default class UserRegistrationServices {
 
     public userAuthentication(userName, password) {
         var data = "username=" + userName + "&password=" + password + "&grant_type=password";
+        console.log('data: ' + data);
         var reqHeader = new HttpHeaders({ 
             'Content-Type': 'application/x-www-urlencoded','No-Auth':'True',
             'Access-Control-Allow-Origin': '*'

@@ -12,24 +12,28 @@ import UserRegistrationServices from '../user-registration/userRegistration.serv
 })
 export class LoginComponent implements OnInit {
 
-  
+
   isLoginError : boolean = false;
 
   constructor(public userRegistrationServiceObject: UserRegistrationServices, private router: Router) { }
 
   ngOnInit() {
-    
+  
   }
 
   OnSubmit(userName, password){
-debugger;
-   this.userRegistrationServiceObject.userAuthentication(userName, password).subscribe((data: any) => {
-      localStorage.setItem('userToekn', data.access_token);
-      this.router.navigate(['/']);
-    },
-    (err: HttpErrorResponse) => {
+
+    if(userName == '' && password == '') {
       this.isLoginError = true;
-    })
+    } else {
+      this.userRegistrationServiceObject.userAuthentication(userName, password).subscribe((data: any) => {
+        localStorage.setItem('userToekn', data.access_token);
+        this.router.navigate(['/']);
+      },
+      (err: HttpErrorResponse) => {
+        this.isLoginError = true;
+      })
+    }
   }
 
 }

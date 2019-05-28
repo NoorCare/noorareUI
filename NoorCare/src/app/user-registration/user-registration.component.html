@@ -54,5 +54,11 @@
             <button type="submit"
             (click)="AddUser()" class="btn btn-primary btn-block"><i class="fas fa-user-plus"></i> Create Account  </button>
         </div>
+        <div *ngIf="isLoginError" class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Error !</strong> {{msgError}}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
         <p class="text-center">Have an account? <a href="">Log In</a> </p>
     </div>
