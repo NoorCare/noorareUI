@@ -13,7 +13,9 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
 import UserRegistrationServices from './user-registration/userRegistration.service';
 import { ToastrModule } from 'ngx-toastr';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { ToastrModule } from 'ngx-toastr';
     LoginComponent,
     SignUpComponent,
     UserRegistrationComponent,
+    HeaderComponent,
+    FooterComponent,
     
   ],
   imports: [
@@ -30,7 +34,8 @@ import { ToastrModule } from 'ngx-toastr';
     ToastrModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule
   ],
   providers: [UserService, UserRegistrationServices, AuthGuard,{
     provide: HTTP_INTERCEPTORS,

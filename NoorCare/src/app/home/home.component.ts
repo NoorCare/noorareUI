@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../shared/user.service';
+import { HeaderComponent } from '../header/header.component'
+import { FooterComponent } from '../footer/footer.component'
+import UserRegistrationServices from '../user-registration/userRegistration.service';
+import UserRegistrationModel from '../user-registration/userRegistratio.model';
+import { promise } from 'protractor';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -8,20 +14,35 @@ import { UserService } from '../shared/user.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+ public name: string;
+ public _data: any;
+  public isLogin: boolean =false;
 
-  userClaims: any;
+  constructor(private router:Router, private userService: UserRegistrationServices) { }
 
-  constructor(private router:Router, private userService: UserService) { }
+  init(){
+    //Promise.all([this.getClaimData()]);
 
+  }
+ public getClaimData(): void{
+  this.userService.getUserClaims().subscribe(responce =>  this._data= responce);
+ }
   ngOnInit() {
-    // this.userService.getUserClaims().subscribe((data: any) => {
-    //   this.userClaims = data;
-    // });
+    let userToken = localStorage.getItem('userToekn');
+    if(userToken != null) { 
+      this.isLogin =true;
+      this.init();
+      }else{
+        this.router.navigate(['/login']);
+       }
+       if(this._data !== undefined){
+       this.name = this._data.FirstName + ' ' + this._data.LastName;
+       }
   }
 
-  Logout(){
-    localStorage.removeItem('userToken');
-    this.router.navigate(['/login']);
+  Logout() {
+   // localStorage.removeItem('userToken');
+   // this.router.navigate(['/login']);
   }
 
 }

@@ -6,24 +6,24 @@ import Constant from '../common/constant';
 @Injectable()
 export default class UserRegistrationServices {
     
-    constructor(public httpclient: HttpClient){
+    constructor(public http: HttpClient){
 
     }
 
     public registerUser(userRegistration: UserRegistrationModel){
         var reqHeader = new HttpHeaders({'No-Auth':'True'});
-        return this.httpclient.post(Constant.serviceBaseUrl + Constant.registrationApi, 
+        return this.http.post(Constant.serviceBaseUrl + Constant.registrationApi, 
         userRegistration, {headers : reqHeader});
     }
 
-    public userAuthentication(userName, password) {
+    userAuthentication(userName, password) {
         var data = "username=" + userName + "&password=" + password + "&grant_type=password";
-        console.log('data: ' + data);
-        var reqHeader = new HttpHeaders({ 
-            'Content-Type': 'application/x-www-urlencoded','No-Auth':'True',
-            'Access-Control-Allow-Origin': '*'
-         });
-        return this.httpclient.post(Constant.serviceBaseUrl + '/token', data, { headers: reqHeader });
-    }
+        var reqHeader = new HttpHeaders({ 'Content-Type': 'text/plain','No-Auth':'True'});
+        return this.http.post(Constant.serviceBaseUrl + 'token', data, { headers: reqHeader });
+      }
 
+      getUserClaims(){
+          debugger;
+        return  this.http.get(Constant.serviceBaseUrl +'api/GetUserClaims');
+       }
 }

@@ -30,7 +30,7 @@ export class UserRegistrationComponent implements OnInit {
      } else if(this._userRegistrationModel.Email == null || !this._userRegistrationModel.Email.match(emailPattern)) {
       this.isLoginError = true;
       this.msgError = 'Enter a vaild email address';
-     } else if(this._userRegistrationModel.PhoneNo == null || !this._userRegistrationModel.PhoneNo.toString().match(phoneno)) {
+     } else if(this._userRegistrationModel.PhoneNumber == null || !this._userRegistrationModel.PhoneNumber.toString().match(phoneno)) {
       this.isLoginError = true;
       this.msgError = 'Phone number should be 10 digit number';
      } else if (this._userRegistrationModel.Password == null) {
@@ -42,7 +42,8 @@ export class UserRegistrationComponent implements OnInit {
       this.msgError = 'Do not Match Password';
     } else {
       console.log('Request');
-      this._userRegistrationModel.AccountType="1";
+      this._userRegistrationModel.AccountType= "1";
+      this._userRegistrationModel.Gender= 1;
       this.userRegistrationServiceObject.registerUser(this._userRegistrationModel)
         .subscribe((data: any) => {
           if (data.Succeeded == true) {

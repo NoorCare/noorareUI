@@ -1,11 +1,25 @@
 <div class="card card-body mx-auto bg-light">
         <h4 class="card-title mt-3 text-center">Create Account</h4>
         <div class="form-group input-group">
-            <div class="input-group-prepend">
-                <span class="input-group-text"> <i class="fa fa-user"></i> </span>
-            </div>
-            <input  [(ngModel)]="_userRegistrationModel.UserName" name="name"
-             class="form-control" placeholder="Full name" type="text">
+                <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                    </div>
+                    <input  [(ngModel)]="_userRegistrationModel.UserName" name="name"
+                     class="form-control" placeholder="User name" type="text">
+            
+        </div>
+        <div class="form-group input-group">
+                <div class="row">
+                        <div class="col-6">
+                        <input  [(ngModel)]="_userRegistrationModel.FirstName" name="UserName"
+                            class="form-control" placeholder="First name" type="text">
+                        </div>
+                        <div class="col-6">
+                        <input  [(ngModel)]="_userRegistrationModel.LastName" name="UserName"
+                            class="form-control" placeholder="Last name" type="text">
+                        </div>
+                    </div>
+            
         </div>
         <div class="form-group input-group">
             <div class="input-group-prepend">
@@ -24,7 +38,7 @@
                 <option value="2">+198</option>
                 <option value="3">+701</option>
             </select>
-            <input [(ngModel)]="_userRegistrationModel.PhoneNo" 
+            <input [(ngModel)]="_userRegistrationModel.PhoneNumber" 
             name="phoneNumber" class="form-control" placeholder="Phone number" type="number" required>
         </div>
         <div class="form-group input-group">
@@ -32,10 +46,18 @@
                 <span class="input-group-text"> <i class="fa fa-building"></i> </span>
             </div>
             <select class="form-control" [(ngModel)]="_userRegistrationModel.jobType" >
-                <option selected> Select job type</option>
-                <option>Designer</option>
-                <option>Manager</option>
-                <option>Accaunting</option>
+                <option selected value="1">Designer</option>
+                <option value="1">Manager</option>
+                <option value="1">Accaunting</option>
+            </select>
+        </div>
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-building"></i> </span>
+            </div>
+            <select class="form-control" [(ngModel)]="_userRegistrationModel.Gender" >
+                <option selected value="1">Male</option>
+                <option value="1">Femail</option>
             </select>
         </div>
         <div class="form-group input-group">
