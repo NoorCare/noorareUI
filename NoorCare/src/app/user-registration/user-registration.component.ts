@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import UserRegistrationModel from './userRegistratio.model';
-import UserRegistrationServices from './userRegistration.service';
 import { ToastrService } from 'ngx-toastr'
 import { Router } from '@angular/router';
+import { UserRegistrationServices } from './userRegistration.service';
 
 @Component({
   selector: 'app-user-registration',

@@ -6,16 +6,20 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { UserService } from './shared/user.service';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
-import UserRegistrationServices from './user-registration/userRegistration.service';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../environments/environment'
+import { UserRegistrationServices } from './user-registration/userRegistration.service';
+import { DoctorComponent } from './doctor/doctor.component';
+import { PharmacyComponent } from './pharmacy/pharmacy.component';
+import { HospitalComponent } from './hospital/hospital.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +30,9 @@ import { FooterComponent } from './footer/footer.component';
     UserRegistrationComponent,
     HeaderComponent,
     FooterComponent,
-    
+    DoctorComponent,
+    PharmacyComponent,
+    HospitalComponent
   ],
   imports: [
     BrowserModule,
@@ -35,9 +41,10 @@ import { FooterComponent } from './footer/footer.component';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AngularFireModule.initializeApp(environment.firebase)
   ],
-  providers: [UserService, UserRegistrationServices, AuthGuard,{
+  providers: [UserRegistrationServices, AuthGuard,{
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
     multi: true

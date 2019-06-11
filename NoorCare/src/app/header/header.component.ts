@@ -1,6 +1,5 @@
 import { Component, OnInit, Injectable, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import UserRegistrationServices from '../user-registration/userRegistration.service';
 import UserRegistrationModel from '../user-registration/userRegistratio.model';
 
 @Component({

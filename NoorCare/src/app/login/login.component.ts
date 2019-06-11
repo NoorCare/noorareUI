@@ -3,11 +3,11 @@ import { UserService } from '../shared/user.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { User } from '../shared/user.model';
-import UserRegistrationServices from '../user-registration/userRegistration.service';
 import { HeaderComponent } from '../header/header.component'
 import { FooterComponent } from '../footer/footer.component'
 import { ToastrService } from 'ngx-toastr'
 import UserRegistrationModel from '../user-registration/userRegistratio.model';
+import { UserRegistrationServices } from '../user-registration/userRegistration.service';
 
 
 @Component({

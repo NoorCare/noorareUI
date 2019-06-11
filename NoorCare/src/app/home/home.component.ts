@@ -1,12 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserService } from '../shared/user.service';
-import { HeaderComponent } from '../header/header.component'
-import { FooterComponent } from '../footer/footer.component'
-import UserRegistrationServices from '../user-registration/userRegistration.service';
-import UserRegistrationModel from '../user-registration/userRegistratio.model';
-import { promise } from 'protractor';
-import { Observable } from 'rxjs';
+import { UserRegistrationServices } from '../user-registration/userRegistration.service';
+
+
 
 @Component({
   selector: 'app-home',

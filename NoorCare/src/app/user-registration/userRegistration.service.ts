@@ -4,7 +4,7 @@ import UserRegistrationModel from './userRegistratio.model';
 import Constant from '../common/constant';
 
 @Injectable()
-export default class UserRegistrationServices {
+export class UserRegistrationServices {
     
     constructor(public http: HttpClient){
 
@@ -23,7 +23,6 @@ export default class UserRegistrationServices {
       }
 
       getUserClaims(){
-          debugger;
         return  this.http.get(Constant.serviceBaseUrl +'api/GetUserClaims');
        }
 }
