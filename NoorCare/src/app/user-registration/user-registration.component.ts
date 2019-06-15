@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import UserRegistrationModel from './userRegistratio.model';
 import { ToastrService } from 'ngx-toastr'
 import { Router } from '@angular/router';
 import { UserRegistrationServices } from './userRegistration.service';
+import UserRegistrationModel from './userRegistratio.model';
 
 @Component({
   selector: 'app-user-registration',
@@ -23,7 +23,7 @@ export class UserRegistrationComponent implements OnInit {
   
    AddUser(){
     const emailPattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    const phoneno = /^\d{10}$/;
+    const phoneno = /^\d{8}$/;
      if(this._userRegistrationModel.UserName == null) {
       this.isLoginError = true;
       this.msgError = 'Enter UserName';
@@ -32,7 +32,7 @@ export class UserRegistrationComponent implements OnInit {
       this.msgError = 'Enter a vaild email address';
      } else if(this._userRegistrationModel.PhoneNumber == null || !this._userRegistrationModel.PhoneNumber.toString().match(phoneno)) {
       this.isLoginError = true;
-      this.msgError = 'Phone number should be 10 digit number';
+      this.msgError = 'Phone number should be 8 digit number';
      } else if (this._userRegistrationModel.Password == null) {
       this.isLoginError = true;
       this.msgError = 'Enter Password';
@@ -44,14 +44,22 @@ export class UserRegistrationComponent implements OnInit {
       console.log('Request');
       this._userRegistrationModel.AccountType= "1";
       this._userRegistrationModel.Gender= 1;
+
+      console.log(this._userRegistrationModel);
+
+
       this.userRegistrationServiceObject.registerUser(this._userRegistrationModel)
         .subscribe((data: any) => {
-          if (data.Succeeded == true) {
-            this.toastr.success('User registration successful');
-            this.router.navigateByUrl('login');
+          console.log('Data: ' + data);
+          if(data == null) {
+            this.isLoginError = true;
+            this.msgError = 'Exist Username';
+          } else {
+            if (data.Succeeded == true) {
+              this.router.navigateByUrl('medical');
+            }
           }
-          else
-            this.toastr.error(data.Errors[0]);
+          
         });
      }
      

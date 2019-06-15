@@ -4,11 +4,13 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './auth/auth.guard';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { MedicalComponent } from './medical/medical.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent, canActivate:[AuthGuard] },
+  { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignUpComponent },
+  { path: 'medical', component: MedicalComponent, canActivate:[AuthGuard]},
   { path: '', redirectTo:'/', pathMatch:'full' }
 ];
 

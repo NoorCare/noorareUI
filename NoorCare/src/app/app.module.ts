@@ -20,6 +20,7 @@ import { UserRegistrationServices } from './user-registration/userRegistration.s
 import { DoctorComponent } from './doctor/doctor.component';
 import { PharmacyComponent } from './pharmacy/pharmacy.component';
 import { HospitalComponent } from './hospital/hospital.component';
+import { MedicalComponent } from './medical/medical.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { HospitalComponent } from './hospital/hospital.component';
     FooterComponent,
     DoctorComponent,
     PharmacyComponent,
-    HospitalComponent
+    HospitalComponent,
+    MedicalComponent
   ],
   imports: [
     BrowserModule,

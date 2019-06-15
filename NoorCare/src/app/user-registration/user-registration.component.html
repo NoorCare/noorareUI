@@ -8,19 +8,30 @@
                      class="form-control" placeholder="User name" type="text">
             
         </div>
-        <div class="form-group input-group">
                 <div class="row">
                         <div class="col-6">
-                        <input  [(ngModel)]="_userRegistrationModel.FirstName" name="UserName"
+                                <div class="form-group input-group">
+                                        <div class="input-group-prepend">
+                                                <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                                            </div>
+                                            <input  [(ngModel)]="_userRegistrationModel.FirstName" name="UserName"
                             class="form-control" placeholder="First name" type="text">
+                                    
+                                </div>
                         </div>
                         <div class="col-6">
-                        <input  [(ngModel)]="_userRegistrationModel.LastName" name="UserName"
+                                <div class="form-group input-group">
+                                        <div class="input-group-prepend">
+                                                <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                                            </div>
+                                            <input  [(ngModel)]="_userRegistrationModel.LastName" name="UserName"
                             class="form-control" placeholder="Last name" type="text">
+                                    
+                                </div>
+                        
                         </div>
-                    </div>
+                </div>
             
-        </div>
         <div class="form-group input-group">
             <div class="input-group-prepend">
                 <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
@@ -33,24 +44,24 @@
                 <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
             </div>
             <select class="custom-select"  style="max-width: 120px;">
-                <option selected>+971</option>
+                <option >+971</option>
                 <option value="1">+972</option>
-                <option value="2">+198</option>
-                <option value="3">+701</option>
+                <option value="2" selected>+974</option>
+                <option value="3">+198</option>
+                <option value="4">+701</option>
             </select>
             <input [(ngModel)]="_userRegistrationModel.PhoneNumber" 
-            name="phoneNumber" class="form-control" placeholder="Phone number" type="number" required>
+            name="phoneNumber" class="form-control" placeholder="Phone number" type="text" required>
         </div>
-        <div class="form-group input-group">
+        <!-- <div class="form-group input-group">
             <div class="input-group-prepend">
                 <span class="input-group-text"> <i class="fa fa-building"></i> </span>
             </div>
             <select class="form-control" [(ngModel)]="_userRegistrationModel.jobType" >
-                <option selected value="1">Designer</option>
                 <option value="1">Manager</option>
                 <option value="1">Accaunting</option>
             </select>
-        </div>
+        </div> -->
         <div class="form-group input-group">
             <div class="input-group-prepend">
                 <span class="input-group-text"> <i class="fa fa-building"></i> </span>
