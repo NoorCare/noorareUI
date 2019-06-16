@@ -39,11 +39,14 @@ import { MedicalComponent } from './medical/medical.component';
   imports: [
     BrowserModule,
     FormsModule,
-    ToastrModule.forRoot(),
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      timeOut: 10000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,}),
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase)
   ],
   providers: [UserRegistrationServices, AuthGuard,{

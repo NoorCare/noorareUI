@@ -1,12 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../shared/user.service';
-import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { User } from '../shared/user.model';
-import { HeaderComponent } from '../header/header.component'
-import { FooterComponent } from '../footer/footer.component'
-import UserRegistrationModel from '../user-registration/userRegistratio.model';
+import { ToastrService } from 'ngx-toastr';
 import { UserRegistrationServices } from '../user-registration/userRegistration.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 
 @Component({
@@ -19,7 +16,8 @@ export class LoginComponent implements OnInit {
   public name:string="";
   isLoginError : boolean = false;
 
-  constructor(public userRegistrationServiceObject: UserRegistrationServices, private router: Router) { }
+  constructor(public userRegistrationServiceObject: UserRegistrationServices, private router: Router
+    ,private toastr: ToastrService) { }
 
   ngOnInit() {
   
@@ -28,12 +26,11 @@ export class LoginComponent implements OnInit {
   OnSubmit(userName, password){
 
     if(userName == '' && password == '') {
+      this.toastr.success('Hello world!', 'Toastr fun!');
       this.isLoginError = true;
     } else {
       this.userRegistrationServiceObject.userAuthentication(userName, password).subscribe((data: any) => {
-        console.log('-------------1--------',data.access_token);
         localStorage.setItem('userToekn', data.access_token);
-        console.log('-------------3--------',localStorage.getItem('userToekn'));
         this.router.navigateByUrl('medical');
       },
       (err: HttpErrorResponse) => {

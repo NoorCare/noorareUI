@@ -53,9 +53,10 @@ export class UserRegistrationComponent implements OnInit {
           console.log('Data: ' + data);
           if(data == null) {
             this.isLoginError = true;
-            this.msgError = 'Exist Username';
+            this.msgError = 'Exist Username or Email Id';
           } else {
             if (data.Succeeded == true) {
+              this.toastr.success('Registration Successfully');
               this.router.navigateByUrl('medical');
             }
           }

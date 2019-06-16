@@ -14,8 +14,6 @@ export class UserRegistrationServices {
 
     public registerUser(userRegistration: UserRegistrationModel) {
 
-        console.log('Body: ' + JSON.stringify(userRegistration));
-
         const body = new HttpParams()
         .set('AccountType', userRegistration.AccountType)
         .set('ConfirmPassword', userRegistration.ConfirmPassword)
@@ -45,7 +43,8 @@ export class UserRegistrationServices {
         return this.http.post(Constant.serviceBaseUrl + 'token', data, { headers: reqHeader });
     }
 
-    getUserClaims(){
-      return  this.http.get(Constant.serviceBaseUrl +'api/GetUserClaims');
+    async getUserClaims() {
+      var reqHeader = new HttpHeaders({ 'Authorization': 'Bearer ' +localStorage.getItem('úserToken')}); //1 min
+      return  this.http.get(Constant.serviceBaseUrl +'api/GetUserClaims',{headers: reqHeader}); //check postman
     }
 }

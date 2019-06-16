@@ -16,24 +16,9 @@ export class HomeComponent implements OnInit {
 
   constructor(private router:Router, private userService: UserRegistrationServices) { }
 
-  init(){
-    //Promise.all([this.getClaimData()]);
-
-  }
- public getClaimData(): void{
-  this.userService.getUserClaims().subscribe(responce =>  this._data= responce);
- }
+  
   ngOnInit() {
-    let userToken = localStorage.getItem('userToekn');
-    if(userToken != null) { 
-      this.isLogin =true;
-      this.init();
-      }else{
-        this.router.navigate(['/login']);
-       }
-       if(this._data !== undefined){
-       this.name = this._data.FirstName + ' ' + this._data.LastName;
-       }
+    
   }
 
   Logout() {
