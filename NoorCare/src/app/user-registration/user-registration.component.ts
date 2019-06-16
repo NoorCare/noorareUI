@@ -19,6 +19,10 @@ export class UserRegistrationComponent implements OnInit {
     , private toastr: ToastrService, private router: Router) { }
 
   ngOnInit() {
+    let userToken = localStorage.getItem('userToekn');
+    if(userToken != null) { 
+      this.router.navigate(['/']);
+    }
   }
   
    AddUser(){
@@ -43,7 +47,7 @@ export class UserRegistrationComponent implements OnInit {
     } else {
       console.log('Request');
       this._userRegistrationModel.AccountType= "1";
-      this._userRegistrationModel.Gender= 1;
+      this._userRegistrationModel.Gender= 1; 
 
       console.log(this._userRegistrationModel);
 
@@ -56,6 +60,7 @@ export class UserRegistrationComponent implements OnInit {
             this.msgError = 'Exist Username';
           } else {
             if (data.Succeeded == true) {
+              localStorage.setItem('userToekn', data.access_token);
               this.router.navigateByUrl('medical');
             }
           }

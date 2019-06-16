@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignUpComponent },
-  { path: 'medical', component: MedicalComponent, canActivate:[AuthGuard]},
+  { path: 'medical', component: MedicalComponent},
   { path: '', redirectTo:'/', pathMatch:'full' }
 ];
 

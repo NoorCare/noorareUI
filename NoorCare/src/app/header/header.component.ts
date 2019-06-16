@@ -12,10 +12,17 @@ import UserRegistrationModel from '../user-registration/userRegistratio.model';
 export class HeaderComponent implements OnInit {
   @Input() isLogin: boolean;
   @Input() name: string = "";
+  username;
   ngOnInit() {
+    if(localStorage.getItem('userName') != '') {
+      this.username = localStorage.getItem('userName');
+    }
   }
+
+  constructor(public router: Router){}
   Logout() {
-    //localStorage.removeItem('userToken');
-    //this.router.navigate(['/login']);
+    console.log('logout');
+    localStorage.clear();
+    this.router.navigate(['/']);
   }
 }

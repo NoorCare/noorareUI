@@ -22,7 +22,10 @@ export class LoginComponent implements OnInit {
   constructor(public userRegistrationServiceObject: UserRegistrationServices, private router: Router) { }
 
   ngOnInit() {
-  
+    let userToken = localStorage.getItem('userToekn');
+    if(userToken != null) { 
+      this.router.navigate(['/']);
+    }
   }
 
   OnSubmit(userName, password){
@@ -33,6 +36,7 @@ export class LoginComponent implements OnInit {
       this.userRegistrationServiceObject.userAuthentication(userName, password).subscribe((data: any) => {
         console.log('-------------1--------',data.access_token);
         localStorage.setItem('userToekn', data.access_token);
+        localStorage.setItem('userName', userName);
         console.log('-------------3--------',localStorage.getItem('userToekn'));
         this.router.navigateByUrl('medical');
       },

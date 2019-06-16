@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import UserRegistrationModel from './userRegistratio.model';
 import Constant from '../common/constant';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -44,8 +45,12 @@ export class UserRegistrationServices {
         var reqHeader = new HttpHeaders({ 'Content-Type': 'application/json','No-Auth':'True'});
         return this.http.post(Constant.serviceBaseUrl + 'token', data, { headers: reqHeader });
     }
-
     getUserClaims(){
-      return  this.http.get(Constant.serviceBaseUrl +'api/GetUserClaims');
+      console.log('GetUSER TOKEN: ', localStorage.getItem('userToekn'));
+     
+      let headers = new HttpHeaders();
+      headers =  headers.append("Authorization" , "Bearer " + localStorage.getItem('userToekn'));
+    
+      return  this.http.get(Constant.serviceBaseUrl +'api/GetUserClaims', { headers:headers});
     }
 }
