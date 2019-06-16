@@ -217,8 +217,14 @@
                             <a data-toggle="dropdown" data-offset="20,10">
                                 <div class="icontext">
                                     <div class="icon-wrap"><i class="icon-sm round border fa fa-user text-success"></i></div>
+<<<<<<< HEAD
                                     <div *ngIf="!isLogin; else elseBlock" class="text-wrap text-dark">
                                         <small>Sign in | Join</small>
+=======
+                                    <div class="text-wrap text-dark">
+                                        <small *ngIf="!isLogin">Sign in | Join</small>
+                                        <small *ngIf="isLogin">Welcome |Sign Out</small>
+>>>>>>> 82be9e423e6e36dcc28d0c19e72c73129cd016ab
                                         <div>My account <i class="fa fa-caret-down"></i> </div>
                                     </div>
                                     <ng-template #elseBlock>
@@ -230,7 +236,11 @@
                                 </div>
                             </a>
                             <div class="dropdown-menu">
+<<<<<<< HEAD
                                 <form *ngIf="!isLogin" class="px-4 py-3">
+=======
+                                <form class="px-4 py-3" *ngIf="!isLogin">
+>>>>>>> 82be9e423e6e36dcc28d0c19e72c73129cd016ab
                                     <h4 class="text-center mb-3">Get Started Now</h4>
                                     <div class="form-group">
                                         <a class="btn btn-primary btn-block" [routerLink]="['/login']">Login</a>
