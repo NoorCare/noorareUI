@@ -1,6 +1,7 @@
 import { Component, OnInit, Injectable, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import UserRegistrationModel from '../user-registration/userRegistratio.model';
+import { UserRegistrationServices } from '../user-registration/userRegistration.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-header',
@@ -10,7 +11,9 @@ import UserRegistrationModel from '../user-registration/userRegistratio.model';
 
 @Injectable()
 export class HeaderComponent implements OnInit {
-  @Input() isLogin: boolean;
+  constructor(private toastr: ToastrService, private router:Router, private userService: UserRegistrationServices) { }
+
+  public isLogin: boolean;
   @Input() name: string = "";
   username;
   ngOnInit() {
@@ -19,7 +22,6 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-  constructor(public router: Router){}
   Logout() {
     console.log('logout');
     localStorage.clear();
