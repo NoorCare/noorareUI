@@ -13,7 +13,7 @@ import { ToastrService } from 'ngx-toastr';
 export class HeaderComponent implements OnInit {
   constructor(private toastr: ToastrService, private router:Router, private userService: UserRegistrationServices) { }
 
-  public isLogin: boolean;
+  @Input() isLogin: boolean;
   @Input() name: string = "";
   username;
   ngOnInit() {

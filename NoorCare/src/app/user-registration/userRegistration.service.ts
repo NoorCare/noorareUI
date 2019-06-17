@@ -43,7 +43,7 @@ export class UserRegistrationServices {
         var reqHeader = new HttpHeaders({ 'Content-Type': 'application/json','No-Auth':'True'});
         return this.http.post(Constant.serviceBaseUrl + 'token', data, { headers: reqHeader });
     }
-<<<<<<< HEAD
+    
     getUserClaims(){
       console.log('GetUSER TOKEN: ', localStorage.getItem('userToekn'));
      
@@ -51,11 +51,6 @@ export class UserRegistrationServices {
       headers =  headers.append("Authorization" , "Bearer " + localStorage.getItem('userToekn'));
     
       return  this.http.get(Constant.serviceBaseUrl +'api/GetUserClaims', { headers:headers});
-=======
 
-    async getUserClaims() {
-      var reqHeader = new HttpHeaders({ 'Authorization': 'Bearer ' +localStorage.getItem('úserToken')}); //1 min
-      return  this.http.get(Constant.serviceBaseUrl +'api/GetUserClaims',{headers: reqHeader}); //check postman
->>>>>>> 82be9e423e6e36dcc28d0c19e72c73129cd016ab
     }
 }

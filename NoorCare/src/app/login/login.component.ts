@@ -34,11 +34,9 @@ export class LoginComponent implements OnInit {
     } else {
       this.userRegistrationServiceObject.userAuthentication(userName, password).subscribe((data: any) => {
         localStorage.setItem('userToekn', data.access_token);
-<<<<<<< HEAD
         localStorage.setItem('userName', userName);
         console.log('-------------3--------',localStorage.getItem('userToekn'));
-=======
->>>>>>> 82be9e423e6e36dcc28d0c19e72c73129cd016ab
+
         this.router.navigateByUrl('medical');
       },
       (err: HttpErrorResponse) => {
